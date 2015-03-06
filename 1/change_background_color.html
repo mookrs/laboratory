@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charser="utf-8">
+    <title>Change Background Color</title>
+    <style type="text/css">
+        button {
+            background-color: #0078e7;
+            border-radius: 2px;
+            border-style: none;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 17px;
+            padding: 16px 31px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #2f6627;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="changeBackgroundColor()">Change!</button>
+
+    <script type="text/javascript">
+        function changeBackgroundColor () {
+            var body = document.getElementsByTagName('body')[0];
+            body.style.backgroundColor = getRandomColor();
+        }
+
+        function getRandomColor () {
+            var letters = '0123456789ABCDEF'.split('');
+            var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+</body>
+</html>
