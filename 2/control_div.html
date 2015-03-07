@@ -4,20 +4,23 @@
     <meta charset="utf-8">
     <title>Control Div</title>
     <style type="text/css">
-        div.center {
+        #outer {
+            width: 500px;
             margin: 0 auto;
-            width: 210px;
+            padding: 0;
+            text-align: center;
         }
         #my-div {
-            margin: 0 auto;
-            background-color: black;
-            height: 100px;
             width: 100px;
+            height: 100px;
+            background-color: black;
+            margin: 10px auto;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <div class="center">
+    <div id="outer">
         <input type="button" value="变宽" onclick="increaseWidth()">
         <input type="button" value="变高" onclick="increaseHeight()">
         <input type="button" value="变色" onclick="changeColor()">
@@ -41,10 +44,7 @@
             div.style.display = 'none';
         }
         function resetDiv () {
-            div.style.width = '100px';
-            div.style.height = '100px';
-            div.style.backgroundColor = 'black';
-            div.style.display = 'block';
+            div.style.cssText = '';
         }
     </script>
 </body>
