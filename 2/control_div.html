@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Control Div</title>
+    <style type="text/css">
+        div.center {
+            margin: 0 auto;
+            width: 210px;
+        }
+        #my-div {
+            margin: 0 auto;
+            background-color: black;
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <input type="button" value="变宽" onclick="increaseWidth()">
+        <input type="button" value="变高" onclick="increaseHeight()">
+        <input type="button" value="变色" onclick="changeColor()">
+        <input type="button" value="隐藏" onclick="hideDiv()">
+        <input type="button" value="重置" onclick="resetDiv()">
+    </div>
+    <div id="my-div"></div>
+
+    <script type="text/javascript">
+        var div = document.getElementById('my-div');
+        function increaseWidth () {
+            div.style.width = '200px';
+        }
+        function increaseHeight () {
+            div.style.height = '200px';
+        }
+        function changeColor () {
+            div.style.backgroundColor = 'red';
+        }
+        function hideDiv () {
+            div.style.display = 'none';
+        }
+        function resetDiv () {
+            div.style.width = '100px';
+            div.style.height = '100px';
+            div.style.backgroundColor = 'black';
+            div.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
