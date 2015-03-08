@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Switch Skin</title>
+    <style type="text/css">
+        ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #outer {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        #skin {
+            margin: 10px 0;
+        }
+        
+        #skin li {
+            width: 6px;
+            height: 6px;
+            cursor: pointer;
+            overflow: hidden;
+            margin-right: 10px;
+            border-width: 4px;
+            border-style: solid;
+            display: inline-block
+        }
+        
+        #skin li.current {
+            background-color: #fff;
+        }
+
+        #red {
+            border-color: red;
+            background-color: red;
+        }
+        
+        #green {
+            border-color: green;
+            background-color: green;
+        }
+        
+        #black {
+            border-color: black;
+            background-color: black;
+        }
+
+        #nav {
+            border: 1px solid #fff;
+            font-size: 12px;
+        }
+
+        #nav li {
+            width: 82px;
+            line-height: 25px;
+            text-align: center;
+            border-right: 1px solid #fff;
+            /* 使用 inline-block 元素会有间距，解决见 https://css-tricks.com/fighting-the-space-between-inline-block-elements/ */
+            display: inline-block;
+        }
+        
+        #nav li.last {
+            width: 83px;
+            border-right-width: 0;
+        }
+        
+        #nav li a {
+            color: #fff;
+        }
+
+        body {
+            height: 100%;
+            background-color: #a3c5a8;
+        }
+
+        #nav {
+            background-color: green;
+            border-color: #fff;
+        }
+
+        #nav li {
+            border-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <ul id="skin">
+            <li id="red" title="红色"></li>
+            <li id="green" class="current" title="绿色"></li>
+            <li id="black" title="黑色"></li>
+        </ul>
+        <ul id="nav">
+            <li>
+                <a href="#">新闻</a>
+            </li><li>
+                <a href="#">娱乐</a>
+            </li><li>
+                <a href="#">体育</a>
+            </li><li>
+                <a href="#">电影</a>
+            </li><li>
+                <a href="#">音乐</a>
+            </li><li class="last">
+                <a href="#">旅游</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
