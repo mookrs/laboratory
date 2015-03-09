@@ -75,20 +75,11 @@
             color: #fff;
         }
 
-        body {
-            height: 100%;
-            background-color: #a3c5a8;
-        }
-
-        #nav {
-            background-color: green;
-            border-color: #fff;
-        }
-
         #nav li {
             border-color: #fff;
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="green.css">
 </head>
 <body>
     <div id="outer">
@@ -113,5 +104,21 @@
             </li>
         </ul>
     </div>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var link = document.getElementsByTagName('link')[0];
+            var skin = document.getElementById('skin').getElementsByTagName("li");
+            for (var i = 0; i < skin.length; i++) {
+                skin[i].onclick = function() {
+                    for (var i = 0; i < skin.length; i++){
+                        skin[i].classList.remove('current');
+                    }
+                    this.classList.add('current');
+                    link.href = this.id + '.css';
+                };
+            }
+        };
+    </script>
 </body>
 </html>
