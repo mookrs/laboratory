@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Pass Params</title>
+</head>
+<body>
+    <div>
+        <input type="text" value="China">
+        <input type="text" value="Beijing">
+    </div>
+    <input id="pass" type="button" value="Pass params!">
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var passBtn = document.getElementById('pass');
+            var params = document.getElementsByTagName('input');
+            passBtn.onclick = function (){
+                alert(params[0].value);
+                alert(params[1].value);
+            };
+        };
+    </script>
+</body>
+</html>
