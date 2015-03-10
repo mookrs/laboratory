@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Change div to red using for loop</title>
+    <style>
+    button {
+        margin: 0 auto;
+        display: block
+    }
+    #outer {
+        width: 330px;
+        height: 100px;
+        margin: 10px auto;
+    }
+    #outer div {
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin: 0 5px;
+        background: black;
+    }
+    </style>
+</head>
+<body>
+    <button>Click this then div to red</button>
+    <div id="outer">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var divs = document.getElementById('outer').getElementsByTagName('div');
+            var btn = document.getElementsByTagName('button')[0];
+            btn.onclick = function () {
+                for(var i = 0; i < divs.length; i++) divs[i].style.background = 'red';
+            };
+        };
+    </script>
+</body>
+</html>
