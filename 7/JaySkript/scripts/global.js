@@ -1,36 +1,36 @@
-function addLoadEvent (func) {
+function addLoadEvent(func) {
     var oldonload = window.onload;
     if (typeof window.onload != 'function') {
         window.onload = func;
-    } else{
-        window.onload = function () {
+    } else {
+        window.onload = function() {
             oldonload();
             func();
         }
     }
 }
 
-function insertAfter(newElement,targetElement) {
+function insertAfter(newElement, targetElement) {
     var parent = targetElement.parentNode;
     if (parent.lastChild == targetElement) {
         parent.appendChild(newElement);
     } else {
-        parent.insertBefore(newElement,targetElement.nextSibling);
+        parent.insertBefore(newElement, targetElement.nextSibling);
     }
 }
 
-function addClass(element,value) {
+function addClass(element, value) {
     if (!element.className) {
         element.className = value;
     } else {
         newClassName = element.className;
-        newClassName+= ' ';
-        newClassName+= value;
+        newClassName += ' ';
+        newClassName += value;
         element.className = newClassName;
-  }
+    }
 }
 
-function highlightPage () {
+function highlightPage() {
     if (!document.getElementsByTagName) return false;
     if (!document.getElementById) return false;
     var headers = document.getElementsByTagName('header');
@@ -49,7 +49,7 @@ function highlightPage () {
     }
 }
 
-function moveElement (elementID, final_x, final_y, interval) {
+function moveElement(elementID, final_x, final_y, interval) {
     if (!document.getElementById) return false;
     if (!document.getElementById(elementID)) return false;
     var elem = document.getElementById(elementID);
@@ -68,28 +68,28 @@ function moveElement (elementID, final_x, final_y, interval) {
         return true;
     }
     if (xpos < final_x) {
-        var dist = Math.ceil((final_x - xpos)/10);
+        var dist = Math.ceil((final_x - xpos) / 10);
         xpos = xpos + dist;
     }
     if (xpos > final_x) {
-        var dist = Math.ceil((xpos - final_x)/10);
+        var dist = Math.ceil((xpos - final_x) / 10);
         xpos = xpos - dist;
     }
     if (ypos < final_y) {
-        var dist = Math.ceil((final_y - ypos)/10);
+        var dist = Math.ceil((final_y - ypos) / 10);
         ypos = ypos + dist;
     }
     if (ypos > final_y) {
-        var dist = Math.ceil((ypos - final_y)/10);
+        var dist = Math.ceil((ypos - final_y) / 10);
         ypos = ypos - dist;
     }
     elem.style.left = xpos + 'px';
     elem.style.top = ypos + 'px';
-    var repeat = "moveElement('"+elementID+"',"+final_x+","+final_y+","+interval+")";
+    var repeat = "moveElement('" + elementID + "'," + final_x + "," + final_y + "," + interval + ")";
     elem.movement = setTimeout(repeat, interval);
 }
 
-function prepareSlideshow () {
+function prepareSlideshow() {
     if (!document.getElementsByTagName) return false;
     if (!document.getElementById) return false;
     if (!document.getElementById('intro')) return false;
@@ -113,7 +113,7 @@ function prepareSlideshow () {
     var links = document.getElementsByTagName('a');
     var destination;
     for (var i = 0; i < links.length; i++) {
-        links[i].onmouseover = function () {
+        links[i].onmouseover = function() {
             destination = this.getAttribute('href');
             if (destination.indexOf('index.html') != -1) {
                 moveElement('preview', 0, 0, 5);
@@ -129,14 +129,14 @@ function prepareSlideshow () {
             }
             if (destination.indexOf('contact.html') != -1) {
                 moveElement('preview', -600, 0, 5);
-            }      
+            }
         };
     }
 }
 
 // About
 
-function showSection (id) {
+function showSection(id) {
     var sections = document.getElementsByTagName('section');
     for (var i = 0; i < sections.length; i++) {
         if (sections[i].getAttribute('id') != id) {
@@ -147,7 +147,7 @@ function showSection (id) {
     }
 }
 
-function prepareInternalnav () {
+function prepareInternalnav() {
     if (!document.getElementsByTagName) return false;
     if (!document.getElementById) return false;
     var articles = document.getElementsByTagName('article');
@@ -161,7 +161,7 @@ function prepareInternalnav () {
         if (!document.getElementById(sectionId)) continue;
         document.getElementById(sectionId).style.display = 'none';
         links[i].destination = sectionId;
-        links[i].onclick = function () {
+        links[i].onclick = function() {
             showSection(this.destination);
             return false;
         }
@@ -212,21 +212,88 @@ function prepareGallery() {
     if (!document.getElementById('imagegallery')) return false;
     var gallery = document.getElementById('imagegallery');
     var links = gallery.getElementsByTagName('a');
-    for ( var i=0; i < links.length; i++) {
+    for (var i = 0; i < links.length; i++) {
         links[i].onclick = function() {
             return showPic(this);
         }
     }
 }
 
+// Live
+
+function stripeTables() {
+    if (!document.getElementsByTagName) return false;
+    var tables = document.getElementsByTagName('table');
+    for (var i = 0; i < tables.length; i++) {
+        var odd = false;
+        var rows = tables[i].getElementsByTagName('tr');
+        for (var j = 0; j < rows.length; j++) {
+            if (odd == true) {
+                addClass(rows[j], 'odd');
+                odd = false;
+            } else {
+                odd = true;
+            }
+        }
+    }
+}
+
+function highlightRows() {
+    if (!document.getElementsByTagName) return false;
+    var rows = document.getElementsByTagName('tr');
+    for (var i = 0; i < rows.length; i++) {
+        rows[i].oldClassName = rows[i].className
+        rows[i].onmouseover = function() {
+            addClass(this, 'highlight');
+        }
+        rows[i].onmouseout = function() {
+            this.className = this.oldClassName
+        }
+    }
+}
+
+function displayAbbreviations() {
+    if (!document.getElementsByTagName || !document.createElement || !document.createTextNode) return false;
+    var abbreviations = document.getElementsByTagName('abbr');
+    if (abbreviations.length < 1) return false;
+    var defs = new Array();
+    for (var i = 0; i < abbreviations.length; i++) {
+        var current_abbr = abbreviations[i];
+        if (current_abbr.childNodes.length < 1) continue;
+        var definition = current_abbr.getAttribute('title');
+        var key = current_abbr.lastChild.nodeValue;
+        defs[key] = definition;
+    }
+    var dlist = document.createElement('dl');
+    for (key in defs) {
+        var definition = defs[key];
+        var dtitle = document.createElement('dt');
+        var dtitle_text = document.createTextNode(key);
+        dtitle.appendChild(dtitle_text);
+        var ddesc = document.createElement('dd');
+        var ddesc_text = document.createTextNode(definition);
+        ddesc.appendChild(ddesc_text);
+        dlist.appendChild(dtitle);
+        dlist.appendChild(ddesc);
+    }
+    if (dlist.childNodes.length < 1) return false;
+    var header = document.createElement('h3');
+    var header_text = document.createTextNode('Abbreviations');
+    header.appendChild(header_text);
+    var articles = document.getElementsByTagName('article');
+    if (articles.length == 0) return false;
+    articles[0].appendChild(header);
+    articles[0].appendChild(dlist);
+}
+
 // Contact
 
-function focusLabels () {
+function focusLabels() {
     if (!document.getElementsByTagName) return false;
     var labels = document.getElementsByTagName('label');
     for (var i = 0; i < labels.length; i++) {
         if (!labels[i].getAttribute('for')) continue;
-        labels[i].onclick = function () {
+        labels[i].onclick = function() {
             var id = this.getAttribute('for');
             if (!document.getElementById(id)) return false;
             var element = document.getElementById(id);
@@ -235,21 +302,21 @@ function focusLabels () {
     }
 }
 
-function resetFields (whichForm) {
+function resetFields(whichForm) {
     if (Modernizr.input.placeholder) return;
     for (var i = 0; i < whichForm.elements.length; i++) {
         var element = whichForm.elements[i];
         if (element.type == 'submit') continue;
         var check = element.placeholder || element.getAttribute('placeholder');
         if (!check) continue;
-        element.onfocus = function () {
+        element.onfocus = function() {
             var text = this.placeholder || this.getAttribute('placeholder');
             if (this.value == text) {
                 this.className = '';
                 this.value = '';
             }
         }
-        element.onblur = function () {
+        element.onblur = function() {
             if (this.value == '') {
                 this.className = 'placeholder';
                 this.value = this.placeholder || this.getAttribute('placeholder');
@@ -259,13 +326,13 @@ function resetFields (whichForm) {
     }
 }
 
-function validateForm (whichform) {
+function validateForm(whichform) {
     for (var i = 0; i < whichform.elements.length; i++) {
         var element = whichform.elements[i];
         if (element.getAttribute('required') == 'required') {
             if (!isFilled(element)) {
-            alert('Please fill in the ' + element.name + ' field.');
-            return false;
+                alert('Please fill in the ' + element.name + ' field.');
+                return false;
             }
         }
         if (element.getAttribute('type') == 'email') {
@@ -278,15 +345,15 @@ function validateForm (whichform) {
     return true;
 }
 
-function isFilled (field) {
+function isFilled(field) {
     return (field.value.length > 1 && field.value != field.placeholder);
 }
 
-function isEmail (field) {
+function isEmail(field) {
     return (field.value.indexOf('@') != -1 && field.value.indexOf('.') != -1);
 }
 
-function prepareForms () {
+function prepareForms() {
     for (var i = 0; i < document.forms.length; i++) {
         var thisform = document.forms[i];
         resetFields(thisform);
@@ -294,7 +361,7 @@ function prepareForms () {
             if (!validateForm(this)) return false;
             var article = document.getElementsByTagName('article')[0];
             if (submitFormWithAjax(this, article)) return false;
-        return true;
+            return true;
         }
     }
 }
