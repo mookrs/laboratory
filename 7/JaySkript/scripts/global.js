@@ -431,7 +431,9 @@ function submitFormWithAjax(whichform, thetarget) {
             }
         }
     };
-
+    // Chrome doesn't support load local files with Ajax
+    // see http://stackoverflow.com/questions/17947971/ajax-in-jquery-does-not-work-from-local-file
+    // and https://code.google.com/p/chromium/issues/detail?id=40787
     request.send(data);
     return true;
 }
