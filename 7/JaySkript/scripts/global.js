@@ -371,5 +371,8 @@ addLoadEvent(prepareSlideshow);
 addLoadEvent(prepareInternalnav);
 addLoadEvent(preparePlaceholder);
 addLoadEvent(prepareGallery);
+addLoadEvent(stripeTables);
+addLoadEvent(highlightRows);
+addLoadEvent(displayAbbreviations);
 addLoadEvent(focusLabels);
 addLoadEvent(prepareForms);
