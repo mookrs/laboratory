@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block body %}
+     <p>
+      Hello!  Wanna tweet something?
+    </p>
+    <form action="{{ url_for('tweet') }}" method=post>
+      <p>
+        <input type=text name=tweet size=40>
+        <input type=submit value="Tweet!">
+      </p>
+    </form>
+
+    <p>
+      Sign in to view your public timeline and to tweet from this
+      example application.
+    </p>
+    <p>
+      <a href="{{ url_for('login') }}">Log In</a>
+    </p>
+{% endblock %}
