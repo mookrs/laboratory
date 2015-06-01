@@ -3,18 +3,16 @@
 
 int main(){
     int c, lastc;
-    lastc = NONBLANK;
 
+    lastc = NONBLANK;
     while((c = getchar()) != EOF){
         if (c != ' '){
             putchar(c);
         }
         else if (lastc != ' '){
-           /* 只输出这一次空格 */
-            putchar(c);
+            putchar(c); /* 只输出这一次空格 */
         }
         lastc = c;
     }
-
     return 0;
 }
