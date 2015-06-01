@@ -9,11 +9,9 @@ int main(){
         if (c != ' '){
             putchar(c);
         }
-        else{
-            if (lastc != ' '){
-                /* 只输出这一次空格 */
-                putchar(c);
-            }
+        else if (lastc != ' '){
+           /* 只输出这一次空格 */
+            putchar(c);
         }
         lastc = c;
     }
