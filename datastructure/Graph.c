@@ -12,7 +12,6 @@ typedef struct
 
 
 /* 邻接表 */
-
 /* typedef InfoType int; */
 typedef struct ArcNode
 {
@@ -33,7 +32,6 @@ typedef struct
 
 
 /* 十字链表，有向图 */
-
 /* typedef InfoType int; */
 typedef struct ArcNode
 {
@@ -54,7 +52,6 @@ typedef struct
 
 
 /* 邻接多重表，无向图 */
-
 /* typedef InfoType int; */
 typedef struct ArcNode
 {
@@ -75,27 +72,31 @@ typedef struct
 }AMLGraph;
 
 
-/* BFS，广度优先搜索 */
 
+/* BFS，广度优先搜索 */
 int visited[MAX_VERTEX_NUM];
-void BFSTraverse(Graph G)
+bool visited[MAX_VERTEX_NUM];   /* 伪代码使用 */
+
+void BFSTraverse(ALGraph *G)
 {
     int i;
 
-    for (i = 0; i < G.vexnum; ++i)
+    for (i = 0; i < G->vexnum; ++i)
         visited[i] = 0;
-    InitQueue(Q);
-    for (int i = 0; i < G.vexnum; ++i)
-        if (!visited[i])
+
+    for (i = 0; i < G->vexnum; ++i)
+        if (visited[i] == 0)
             BFS(G, i);
 }
 
+/* 伪代码 */
 void BFS(Graph G, int v)
 {
     int w;
+    InitQueue(Q);   /* 这句本来是放在BFSTraverse()中的 */
     
     visit(v);
-    visited[v] = 1;
+    visited[v] = TRUE;
     Enqueue(Q, v);
     while(!isEmpty(Q))
     {
@@ -112,13 +113,85 @@ void BFS(Graph G, int v)
     }
 }
 
+/* 以邻接表为存储结构的广度优先搜索 */
+void BFS(ALGraph *G, int v)
+{
+    ArcNode *p; 
+    int queue[MAX_VERTEX_NUM], front = 0, rear = 0;
+    int j;
+
+    visit(v);
+    visited[v] = 1;
+
+    rear = （rear + 1) % MAX_VERTEX_NUM;
+    queue[rear] = v;
+
+    while(front != rear)
+    {
+        front = (front + 1) % MAX_VERTEX_NUM;
+        j = queue[front];
+
+        p = G->vertices[j].first;
+        while(p != NULL)
+        {
+            if(visited[p->adjvex] == 0)
+            {
+                visit(p->adjvex);
+                visited[p->adjvex] = 1;
+
+                rear = (rear + 1) % MAX_VERTEX_NUM;
+                queue[rear] = p->adjvex;
+            }
+            p = p->nextarc;
+        }
+    }
+}
+
+
 
 /* DFS，深度优先搜索 */
+int visited[MAX_VERTEX_NUM];
+bool visited[MAX_VERTEX_NUM];   /* 伪代码使用 */
 
+void DFSTraverse(ALGraph *G)
+{
+    int i;
 
+    for (i = 0; i < G->vexnum; ++i)
+        visited[i] = 0
 
+    for (i = 0; i < G->vexnum; ++i)
+        if (visited[i] == 0)
+            DFS(G, i);
+}
 
+/* 伪代码 */
+void DFS(Graph G, int v)
+{
+    int w;
 
+    visit(v);
+    visited[v] = TRUE;
+    for (w = FirstNeighbor(G, v); w >= 0; w = NextNeighbor(G, v, w))
+    {
+        if (!visited[w])
+            DFS(G, w);
+    }
+}
 
+/* 以邻接表为存储结构的深度优先搜索 */
+void DFS(ALGraph *G, int v)
+{
+    ArcNode *p;
 
+    visit(v);
+    visited[v] = 1;
 
+    p = G->vertices[v].first;
+    while(p != NULL)
+    {
+        if (visited[p->adjvex] == 0)
+            DFS(G, p->adjvex);
+        p = p->nextarc;
+    }
+}
