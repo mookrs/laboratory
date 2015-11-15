@@ -248,12 +248,12 @@ void Prim(MGraph *G, int v0)
     int vset[MAX_VERTEX_NUM];
     int i, j, k, min;
 
-    vset[v0] = 1;
     for (i = 1; i < G->vexnum; ++i)
     {
         lowcost[i] = G->edges[v0][i];
         vset[i] = 0;
     }
+    vset[v0] = 1;
     
     for (i = 1; i < G->vexnum; ++i)
     {
@@ -313,7 +313,6 @@ void get_root(int *parent, int f)
     return f;
 }
 
-
 #define MAX_EDGE_NUM 20
 void Kruskal(Graph *G)
 {
@@ -334,6 +333,58 @@ void Kruskal(Graph *G)
             printf("(%d, %d) %d\n", edges[i].begin, edges[i].end, edges[i].weight);
             /* sum += edges[i].weight */
         }
+    }
 }
+
+
+
+/* Dijkstra（迪杰斯特拉）算法 */
+void Dijkstra(MGraph *G, int v0, int dist[], int path[])
+{
+    int set[MAX_VERTEX_NUM];
+    int min, i, j, k;
+
+    for (i = 0; i < G->vexnum; ++i)
+    {
+        dist[i] = G->edges[v0][i];
+        set[i] = 0;
+        if (G->edges[v0][i] < INFINITY)
+            path[i] = v0;
+        else
+            path[i] = -1;
+    }
+    set[v0] = 1;
+    path[v0] = -1;
+
+    for (i = 1; i < G->vexnum; ++i)
+    {
+        min = INFINITY;
+
+        for (j = 0; j < G->vexnum; ++j)
+        {
+            if (set[j] == 0 && dist[j] < min)
+            {
+                min = dist[j];
+                k = j;
+            }
+        }
+        set[k] = 1;
+
+        for (j = 0; j < G->vexnum; ++j)
+        {
+            if (set[j] == 0 && min + G->edges[k][j] < dist[j])
+            {
+                dist[j] = min + G->edges[k][j];
+                path[j] = k;
+            }
+        }
+    }
+}
+
+
+
+/* Floyd（弗洛伊德）算法 */
+void Floyd(MGraph *G, int A[][MAX_VERTEX_NUM], int Path[][MAX_VERTEX_NUM])
+{
 
 }
