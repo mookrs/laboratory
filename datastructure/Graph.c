@@ -298,7 +298,42 @@ void Kruskal(V, T)
     }
 }
 
-void Kruskal()
+/* 实际就是边集数组 */
+typedef struct
 {
-    
+    int begin, end;
+    int weight;
+}Edge;
+
+/* 这里的写法是大话数据结构的，天勤定义了一个全局数组road[MAX_VERTEX_NUM] */
+void get_root(int *parent, int f)
+{
+    while(parent[f] > 0)
+        f = parent;
+    return f;
+}
+
+
+#define MAX_EDGE_NUM 20
+void Kruskal(Graph *G)
+{
+    int i, m, n;
+    Edge edges[MAX_EDGE_NUM];
+    int parent[MAX_VERTEX_NUM];
+
+    for (i = 0; i < G->vexnum; ++i)
+        parent[i] = 0;
+
+    for (i = 0; i < G->arcnum; ++i)
+    {
+        m = get_root(parent, edges[i].begin);
+        n = get_root(parent, edges[i].end);
+        if (m != n) /* 说明此边没有与现有生成树形成环路 */
+        {
+            parent[n] = m;
+            printf("(%d, %d) %d\n", edges[i].begin, edges[i].end, edges[i].weight);
+            /* sum += edges[i].weight */
+        }
+}
+
 }
