@@ -75,7 +75,7 @@ typedef struct
 
 /* BFS，广度优先搜索 */
 int visited[MAX_VERTEX_NUM];
-bool visited[MAX_VERTEX_NUM];   /* 伪代码使用 */
+bool visited[MAX_VERTEX_NUM];   /* 用于伪代码 */
 
 void BFSTraverse(ALGraph *G)
 {
@@ -151,7 +151,7 @@ void BFS(ALGraph *G, int v)
 
 /* DFS，深度优先搜索 */
 int visited[MAX_VERTEX_NUM];
-bool visited[MAX_VERTEX_NUM];   /* 伪代码使用 */
+bool visited[MAX_VERTEX_NUM];   /* 用于伪代码 */
 
 void DFSTraverse(ALGraph *G)
 {
@@ -198,4 +198,107 @@ void DFS(ALGraph *G, int v)
 
 
 
-/*  */
+/* BFS算法求解单源最短路径问题，伪代码 */
+/* 顶点u到顶点v的最短路径 */
+void BFS_MIN_Distance(Graph G, int u)
+{
+    int i, w;
+
+    for (i = 0; i < G.vexnum; ++i)
+        d[i] = INFINITY;    /* 由u到i顶点的最短路径 */
+
+    visited[u] = TRUE;
+    d[u] = 0;
+
+    Enqueue(Q, u);
+    while(!isEmpty(Q))
+    {
+        Dequeue(Q, u);  /* 以下for循环的所有顶点w，都和此处出栈的顶点u相关 */
+        for (w = FirstNeighbor(G, u); w >= 0; w = NextNeighbor(G, u, w))
+        {
+            if (!visited[w])
+            {
+                visited[w] = TRUE;
+                d[w] = d[u] + 1;    /* 路径长度加1 */
+                Enqueue(Q, w);
+            }
+        }
+    }
+}
+
+
+
+/* Prim（普里姆）算法 */
+/* 伪代码 */
+void Prim(G, T) /* 图G=(V, E) */
+{
+    T = ∅;                  /* 初始化空树 */
+    U = {w};                /* 添加任一顶点w */ 
+    while((V-U) != ∅)       /* 若树中不包含全部顶点 */
+    {
+        /* 设(u, v) 是使u∈U与v∈(V-U)，且权值最小的边*/
+        T = T ∪ {(u, v)};   /* 边归入树 */
+        U = U ∪ {v};        /* 顶点归入树 */
+    }
+}
+
+void Prim(MGraph *G, int v0)
+{
+    int lowcost[MAX_VERTEX_NUM];    /* 相关顶点边的权值 */
+    int vset[MAX_VERTEX_NUM];
+    int i, j, k, min;
+
+    vset[v0] = 1;
+    for (i = 1; i < G->vexnum; ++i)
+    {
+        lowcost[i] = G->edges[v0][i];
+        vset[i] = 0;
+    }
+    
+    for (i = 1; i < G->vexnum; ++i)
+    {
+        min = INFINITY;         /* 初始化最小权值为无穷大 */
+
+        for (j = 1; j < G->vexnum; ++j)
+        {
+            if (vset[j] == 0 && lowcost[j] < min)
+            {
+                min = lowcost[j];
+                k = j;
+            }
+        }
+        vset[k] = 1;    /* 此顶点已完成任务 */
+        /* 此处可计算权值 sum += min; */
+
+        /* 以刚并入的顶点作为媒介更新候选边 */
+        for (j = 1; j < G->vexnum; ++j)
+        {
+            if (vset[j] == 0 && G->edges[k][j] < lowcost[j])
+                lowcost[j] = G->edges[k][j];
+        }
+    }
+}
+
+
+
+/* Kruskal（克鲁斯卡尔）算法 */
+/* 伪代码 */
+void Kruskal(V, T)
+{
+    T = V;              /* 初始化树T，仅含顶点 */
+    numS = n;           /* 不连通分量数 */
+    while(numS > 1)
+    {
+        /* 从E中去除权值最小的边(v, u) */
+        if (v和u属于T中不同的连通分量)
+        {
+            T = T ∪ {(v, u)};    /* 将此边加入生成树中 */
+            numS--;             /* 不连通分量数减1 */
+        }
+    }
+}
+
+void Kruskal()
+{
+    
+}
