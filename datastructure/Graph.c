@@ -384,7 +384,71 @@ void Dijkstra(MGraph *G, int v0, int dist[], int path[])
 
 
 /* Floyd（弗洛伊德）算法 */
-void Floyd(MGraph *G, int A[][MAX_VERTEX_NUM], int Path[][MAX_VERTEX_NUM])
+void Floyd(MGraph *G, int dist[][MAX_VERTEX_NUM], int path[][MAX_VERTEX_NUM])
 {
+    int i, j, k;
 
+    for (i = 0; i < G->vexnum; ++i)
+    {
+        for (j = 0; j < G->vexnum; ++j)
+        {
+            dist[i][j] = G->edges[i][j];
+            path[i][j] = -1;
+        }
+    }
+
+    for (i = 0; i < G->vexnum; ++i)
+        for (j = 0; j < G->vexnum; ++j)
+            for (k = 0; k < G->vexnum; ++k)
+                if (dist[i][j] > dist[i][k] + dist[k][j])
+                {
+                    dist[i][j] = dist[i][k] + dist[k][j];
+                    path[i][j] = k;
+                }
+}
+
+
+
+/* AOV网 */
+/* 以邻接表为存储结构 */
+typedef struct
+{
+    VertexType data;
+    int in;             /* 顶点入度 */
+    ArcNode *first;
+}VNode;
+
+int TopologicalSort(ALGraph *G)
+{
+    int i, j, gettop;
+    int count = 0;      /* 输出顶点的个数 */
+    ArcNode *p;
+    int stack[MAX_VERTEX_NUM];
+    int top = -1;
+
+    for (i = 0; i < G->vexnum; ++i)
+        if (G->vertices[i].in == 0)
+            stack[++top] = i;
+
+    while(top != -1)
+    {
+        gettop = stack[top--];
+        printf("%d -> ", gettop);
+        ++count;
+
+        p = G->vertices[gettop].first;
+        while(p != NULL)
+        {
+            j = p->adjvex;
+            if (--G->vertices[j].in == 0)
+                stack[++top] = j;
+
+            p = p->nextarc;
+        }
+    }
+
+    if (count == G->vexnum)
+        return 1;
+    else
+        return 0;
 }
