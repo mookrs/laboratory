@@ -35,7 +35,6 @@ def index():
 @app.route('/tweet', methods=['POST'])
 def tweet():
     status = request.form['tweet']
-    print(status)
     if not status:
         return redirect(url_for('index'))
     resp = fanfou.post('statuses/update.json', data={
@@ -63,8 +62,8 @@ def logout():
 
 @app.route('/login/oauthorized')
 def oauthorized():
-    if 'oauth_token' not in request.args and 'oauth_verifier' in request.args and 'request_token' in session:
-        request.url = add_params_to_uri(request.url, [('oauth_token', session['request_token'])])
+    if 'oauth_verifier' not in request.args:
+        request.url = add_params_to_uri(request.url, [('oauth_verifier', 'request_token')])
     next_url = request.args.get('next') or url_for('index')
     print(request.args)
     resp = fanfou.authorized_response()
@@ -72,7 +71,10 @@ def oauthorized():
         flash('You denied the request to sign in.')
     if isinstance(resp, OAuthException):
         flash('Access denied: %s' % resp.message)
-    session['fanfou_token'] = resp
+    session['fanfou_token'] = (
+        resp['oauth_token'],
+        resp['oauth_token_secret']
+    )
     return redirect(next_url)
 
 
