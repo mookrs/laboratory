@@ -1,5 +1,6 @@
 from flask import Flask, session, redirect, url_for, request, render_template, flash
 from flask_oauthlib.client import OAuth, OAuthException
+from oauthlib.common import add_params_to_uri
 
 app = Flask(__name__)
 app.debug = True
@@ -15,6 +16,7 @@ fanfou = oauth.remote_app(
     authorize_url='http://fanfou.com/oauth/authorize',
     consumer_key='bd58c28d30ba2a1fe7b7ca96dd71f7ea',
     consumer_secret='f975fa68779936ce967921356a315853',
+
 )
 
 
@@ -33,6 +35,7 @@ def index():
 @app.route('/tweet', methods=['POST'])
 def tweet():
     status = request.form['tweet']
+    print(status)
     if not status:
         return redirect(url_for('index'))
     resp = fanfou.post('statuses/update.json', data={
@@ -49,8 +52,7 @@ def tweet():
 
 @app.route('/login')
 def login():
-    callback = url_for('oauthorized', next=request.args.get('next') or request.referrer or None, _external=True)
-    return fanfou.authorize(callback=callback)
+    return fanfou.authorize(callback=url_for('oauthorized', next=request.args.get('next') or request.referrer or None))
 
 
 @app.route('/logout')
@@ -59,9 +61,12 @@ def logout():
     return redirect(url_for('index'))
 
 
-@app.route('/oauthorized')
+@app.route('/login/oauthorized')
 def oauthorized():
+    if 'oauth_token' not in request.args and 'oauth_verifier' in request.args and 'request_token' in session:
+        request.url = add_params_to_uri(request.url, [('oauth_token', session['request_token'])])
     next_url = request.args.get('next') or url_for('index')
+    print(request.args)
     resp = fanfou.authorized_response()
     if resp is None:
         flash('You denied the request to sign in.')
