@@ -10,5 +10,6 @@ int main(void)
         ch2 = ch1 + ('a' - 'A');
         printf("%c\n", ch2);
     }
+    
     return 0;
 }
