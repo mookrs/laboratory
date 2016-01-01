@@ -27,12 +27,12 @@ int main(void)
     int num;
     printf("Enter number of plates: ");
     scanf("%d", &num);
-    
+
     move(num, 'A', 'B', 'C');
     return 0;
 }
 
-void move(int num, char A, char B, char C){
+void move(int num, char A, char B, char C) {
     /* If only 1 disk, make the move and return */
     if (num == 1) {
         printf("\nMove disk %d from peg %c to peg %c", num, A, C);

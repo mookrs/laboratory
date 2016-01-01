@@ -1,15 +1,13 @@
 #include<stdio.h>
 
-int main(void)
-{
+int main(void) {
     /* 辗转相除法 */
     int a, b, x, y, t, gcd, lcm;
- 
+
     printf("Enter two integers\n");
     scanf("%d %d", &x, &y);
-    
-    if (x < y)
-    {
+
+    if (x < y) {
         t = x;
         x = y;
         y = t;
@@ -22,12 +20,12 @@ int main(void)
         b = a % b;
         a = t;
     }
-    
+
     gcd = a;
     lcm = (x * y) / gcd;
 
     printf("Greatest common divisor of %d and %d = %d\n", x, y, gcd);
     printf("Least common multiple of %d and %d = %d\n", x, y, lcm);
-    
+
     return 0;
 }

@@ -1,7 +1,11 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding: utf-8
+"""
+    写程序打印所有的素数。
+"""
 
-import sys, math
+import sys
+import math
+
 
 def is_prime(n):
     for i in range(2, int(math.sqrt(n)) + 1):

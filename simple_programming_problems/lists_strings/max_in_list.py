@@ -1,4 +1,8 @@
 # coding: utf-8
+"""
+    写一个函数，返回列表中最大的数。
+"""
+
 
 def find_max_in_list(alist):
     max = alist[0]
@@ -7,5 +11,5 @@ def find_max_in_list(alist):
             max = num
     print max
 
-alist = [23,45,6547,78,88,9,9,0,22234,33]
+alist = [23, 45, 6547, 78, 88, 9, 9, 0, 22234, 33]
 find_max_in_list(alist)

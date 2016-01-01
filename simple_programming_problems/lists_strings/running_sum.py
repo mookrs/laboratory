@@ -1,4 +1,8 @@
 # coding: utf-8
+"""
+    写个函数计算列表的运行花费总和。
+"""
+
 
 def running_sum(alist):
     total = 0

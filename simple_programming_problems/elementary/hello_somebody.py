@@ -1,5 +1,7 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding: utf-8
+"""
+    仅可以与 Alice 和 Bob 这两个用户用其姓名与之打招呼。
+"""
 
 is_somebody = False
 while not is_somebody:

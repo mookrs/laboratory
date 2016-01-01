@@ -1,8 +1,12 @@
 # coding: utf-8
+"""
+    写个程序打印出接下来的 20 个闰年。
+"""
 
 from datetime import datetime
 
 this_year = datetime.now().year
+
 
 def is_leap_year(year):
     if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
