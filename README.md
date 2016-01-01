@@ -1,16 +1,25 @@
 # laboratory
+
 A laboratory for testing code.
 
-## Don't Panic
+## 简介
 
-1 ~ 6 9 <http://js.fgm.cc/learn/>
+arcpy_script：ArcPy 脚本
 
-7 DOM Scripting: Web Design with JavaScript and the Document Object Model
+c_programing：一些 C 语言程序
 
-8 A Flask OAuth test
+data_structure：一些数据结构的实现
 
-10 12 <http://adriann.github.io/programming_problems.html>
+flask_upload：Flask stream file upload
 
-11 Flask stream file upload
+flaskr：Flask 测试
 
-13 C program
+jay_skript：《JavaScript DOM 编程艺术》第 12 章的综合示例
+
+js_examples：http://fgm.cc/learn/ 的 JS 实例索引
+
+k\_and\_r：《C 语言程序设计》（The C Programming Language）的例子和习题
+
+python_cookbook：《Python Cookbook》
+
+simple\_programming\_problems：http://adriann.github.io/programming_problems.html
