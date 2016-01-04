@@ -8,7 +8,7 @@ arcpy_script：ArcPy 脚本
 
 c_programing：一些 C 语言程序
 
-data_structure：一些数据结构的实现
+data_structure：《数据结构与算法分析（C 语言描述）》（Data Structures and Algorithm Analysis in C）
 
 flask_upload：Flask stream file upload
 
@@ -18,9 +18,9 @@ jay_skript：《JavaScript DOM 编程艺术》第 12 章的综合示例
 
 js_examples：http://fgm.cc/learn/ 的 JS 实例索引
 
-k\_and\_r：《C 语言程序设计》（The C Programming Language）的例子和习题
+k\_and\_r：《C 语言程序设计》（The C Programming Language）
 
-leetcode：Leetcode 练习
+leetcode：LeetCode 练习
 
 python_cookbook：《Python Cookbook》
 
