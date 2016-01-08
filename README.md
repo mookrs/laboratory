@@ -20,6 +20,10 @@ js_examples：http://fgm.cc/learn/ 的 JS 实例索引
 
 k\_and\_r：《C 语言程序设计》（The C Programming Language）的例子和习题
 
+leetcode：Leetcode 练习
+
 python_cookbook：《Python Cookbook》
 
 simple\_programming\_problems：http://adriann.github.io/programming_problems.html
+
+web_scraping：《Web Scraping with Python》
