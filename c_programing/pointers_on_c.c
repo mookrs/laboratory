@@ -7,8 +7,7 @@
 int read_column_numbers(int columns[], int max);
 void rearrange(char *output, char const *input, int n_columns, int const columns[]);
 
-int main(void)
-{
+int main(void) {
     int n_columns;              /* 进行处理的列标号 */
     int columns[MAX_COLS];      /* 需要处理的列数 */
     char input[MAX_INPUT];      /* 容男输入行的数组 */
@@ -28,8 +27,7 @@ int main(void)
 /*
 ** 读取列标号，如果超出规定范围则不予理会。
 */
-int read_column_numbers(int columns[], int max)
-{
+int read_column_numbers(int columns[], int max) {
     int num = 0;
     int ch;
 
@@ -48,8 +46,7 @@ int read_column_numbers(int columns[], int max)
     return num;
 }
 
-void rearrange(char *output, char const *input, int n_columns, int const columns[])
-{
+void rearrange(char *output, char const *input, int n_columns, int const columns[]) {
     int col;        /* columns数组的下标 */
     int output_col; /* 输出列计数器 */
     int len;        /* 输出行的长度 */
