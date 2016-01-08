@@ -1,7 +1,6 @@
 import os
 from flask import Flask, render_template, request, send_from_directory, abort
 
-
 app = Flask(__name__)
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
