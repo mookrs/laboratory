@@ -4,8 +4,8 @@ A laboratory for testing code.
 
 ## Introduction
 
-* 3w3w: [3 Web Designs in 3 Weeks](https://www.gitbook.com/book/juntao/3-web-designs-in-3-weeks/details)
-* algorithms：Sedgewick《算法（第 4 版）》（[Algorithms](http://algs4.cs.princeton.edu/code/)）
+* 3w3w：[3 Web Designs in 3 Weeks](https://www.gitbook.com/book/juntao/3-web-designs-in-3-weeks/details)
+* algorithms：《算法（第 4 版）》（[Algorithms](http://algs4.cs.princeton.edu/code/)）
 * c_programing：C 语言练习
 * data_structure：《数据结构与算法分析（C 语言描述）》（Data Structures and Algorithm Analysis in C）
 * flasky：《Flask Web 开发 :基于 Python 的 Web 应用开发实战》（Flask Web Development）
@@ -18,6 +18,7 @@ A laboratory for testing code.
 * python_programing
 	* arcpy：ArcPy 脚本
 	* flask_upload：Flask stream file upload
-	* sms_converter：蜡笔及豌豆荚 CSV 格式转换脚本 
+	* sms_converter：蜡笔及豌豆荚 CSV 格式转换脚本
+	* python_basic：《Python 基础教程》20-22 章的代码
 * [simple\_programming\_problems](http://adriann.github.io/programming_problems.html)
 * web_scraping：《Web Scraping with Python》
