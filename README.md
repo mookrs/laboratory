@@ -18,6 +18,8 @@ A laboratory for testing code.
 
 * k\_and\_r：《C 语言程序设计》（The C Programming Language）
 
+* learngit：Git 学习 http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
+
 * leetcode：LeetCode 练习
 
 * python_cookbook：《Python Cookbook》
