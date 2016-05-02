@@ -27,7 +27,7 @@ A laboratory for testing code.
 * python_programing
 	* arcpy：ArcPy 脚本
 	* flask_upload：Flask stream file upload
-	* sms_converter：蜡笔及豌豆荚 CVS 格式转换脚本
+	* sms_converter：蜡笔及豌豆荚 CSV 格式转换脚本
 	 
 * simple\_programming\_problems：http://adriann.github.io/programming_problems.html
 
