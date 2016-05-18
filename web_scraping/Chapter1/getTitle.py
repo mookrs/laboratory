@@ -19,4 +19,4 @@ title = getTitle("http://www.pythonscraping.com/exercises/exercise1.html")
 if title == None:
     print("Title could not be found")
 else:
-    print(title.get_text())
+    print(title)
