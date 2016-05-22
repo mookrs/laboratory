@@ -22,4 +22,4 @@ A laboratory for testing code.
 	* python_basic：《Python 基础教程》20-22 章的代码
 	* sms_converter：蜡笔及豌豆荚 CSV 格式转换脚本
 * [simple\_programming\_problems](http://adriann.github.io/programming_problems.html)
-* web_scraping：《Web Scraping with Python》
+* web_scraping：《[Web Scraping with Python](https://github.com/REMitchell/python-scraping)》
