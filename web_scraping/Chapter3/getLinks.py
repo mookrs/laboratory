@@ -11,6 +11,7 @@ random.seed(datetime.datetime.now())
 def getLinks(articleUrl):
     html = urlopen("https://en.wikipedia.org" + articleUrl)
     bsObj = BeautifulSoup(html, "html.parser")
+    # (?!exp)匹配后面跟的不是exp的位置
     return bsObj.find("div", {"id": "bodyContent"}).findAll("a", href=re.compile("^(/wiki/)((?!:).)*$"))
 
 links = getLinks("/wiki/Kevin_Bacon")
