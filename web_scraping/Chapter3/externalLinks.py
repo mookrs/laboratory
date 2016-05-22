@@ -73,7 +73,6 @@ def getAllExternalLinks(siteUrl):
             allExtLinks.add(link)
             print(link)
     for link in internalLinks:
-        print(internalLinks)
         if link not in allIntLinks:
             print("About to get link: " + link)
             allIntLinks.add(link)
