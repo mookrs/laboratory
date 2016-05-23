@@ -1,14 +1,18 @@
-from scrapy.selector import Selector
-from scrapy import Spider
+from scrapy.spiders import CrawlSpider, Rule
 from wikiSpider.items import Article
+from scrapy.linkextractors.sgml import SgmlLinkExtractor
 
 
-# $ scrapy crawl article
-class ArticleSpider(Spider):
+# has bug in Python3:
+# from sgmllib import SGMLParser
+# ImportError: No module named 'sgmllib'
+class ArticleSpider(CrawlSpider):
     name = "article"
     allowed_domains = ["en.wikipedia.org"]
-    start_urls = ["https://en.wikipedia.org/wiki/Main_Page",
-                  "https://en.wikipedia.org/wiki/Python_%28programming_language%29"]
+    start_urls = [
+        "https://en.wikipedia.org/wiki/Python_%28programming_language%29"]
+    rules = [Rule(SgmlLinkExtractor(allow=("(/wiki/)((?!:).)*$"),),
+                  callback="parse_item", follow=True)]
 
     def parse(self, response):
         item = Article()
@@ -16,3 +20,5 @@ class ArticleSpider(Spider):
         print("Title is: " + title)
         item['title'] = title
         return item
+
+# scrapy crawl article -s LOG_FILE=wiki.log
