@@ -1,10 +1,14 @@
-from flask import Flask, request, make_response, redirect
+from flask import Flask
+from flask_script import Manager
+
 app = Flask(__name__)
+manager = Manager(app)
 
 
 @app.route('/')
 def index():
-    return redirect('https://www.baidu.com')
+    return '<h1>Hello!</h1>'
+
 
 @app.route('/user/<name>')
 def user(name):
@@ -12,4 +16,4 @@ def user(name):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    manager.run()
