@@ -1,5 +1,5 @@
 import os
-from .secrets import CFG_MAIL_USERNAME, CFG_MAIL_PASSWORD, CFG_FLASKY_ADMIN
+from secrets import CFG_MAIL_USERNAME, CFG_MAIL_PASSWORD, CFG_FLASKY_ADMIN
 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
