@@ -12,7 +12,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate, MigrateCommand
 from flask_mail import Mail, Message
 
-from secrets import MAIL_USERNAME, MAIL_PASSWORD, FLASKY_ADMIN
+from secrets import CFG_MAIL_USERNAME, CFG_MAIL_PASSWORD, CFG_FLASKY_ADMIN
 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -25,11 +25,11 @@ app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = MAIL_USERNAME
-app.config['MAIL_PASSWORD'] = MAIL_PASSWORD
+app.config['MAIL_USERNAME'] = CFG_MAIL_USERNAME
+app.config['MAIL_PASSWORD'] = CFG_MAIL_PASSWORD
 app.config['FLASKY_MAIL_SUBJECT_PREFIX'] = '[Flasky]'
 app.config['FLASKY_MAIL_SENDER'] = 'Flasky Admin <flasky@example.com>'
-app.config['FLASKY_ADMIN'] = FLASKY_ADMIN
+app.config['FLASKY_ADMIN'] = CFG_FLASKY_ADMIN
 
 manager = Manager(app)
 bootstrap = Bootstrap(app)
