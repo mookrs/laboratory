@@ -14,7 +14,7 @@ A laboratory for testing code.
 * k\_and\_r：《C 语言程序设计》（The C Programming Language）
 * learngit：廖雪峰的 [Git 教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 * leetcode：[LeetCode](https://leetcode.com/) 练习
-* python_cookbook：《Python Cookbook》
+* python_cookbook：《[Python Cookbook](https://github.com/dabeaz/python-cookbook)》
 * python_programing
 	* arcpy：ArcPy 脚本
 	* flask_upload：Flask stream file upload
