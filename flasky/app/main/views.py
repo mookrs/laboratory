@@ -1,5 +1,6 @@
 from datetime import datetime
 from flask import render_template, session, redirect, url_for, current_app
+from flask_login import login_required
 
 from .. import db
 from ..models import User
@@ -31,3 +32,9 @@ def index():
 @main.route('/user/<name>')
 def user(name):
     return render_template('user.html', name=name)
+
+
+@main.route('/secret')
+@login_required
+def secret():
+    return 'Only authenticated users are allowed!'
