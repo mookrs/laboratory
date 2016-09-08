@@ -58,11 +58,10 @@ int Max3(int A, int B, int C) {
             max = A;
         else
             max = C;
+    else if (B > C)
+        max = B;
     else
-        if (B > C)
-            max = B;
-        else
-            max = C;
+        max = C;
 
     return max;
 }
@@ -106,5 +105,16 @@ int MaxSubsequenceSum3(const int A[], int N) {
 }
 
 int MaxSubsequenceSum4(const int A[], int N) {
-    return 0;
+    int ThisSum, MaxSum, j;
+
+    ThisSum = MaxSum = 0;
+    for (j = 0; j < N; ++j) {
+        ThisSum += A[j];
+
+        if (ThisSum > MaxSum)
+            MaxSum = ThisSum;
+        else if (ThisSum < 0)
+            ThisSum = 0;
+    }
+    return MaxSum;
 }
