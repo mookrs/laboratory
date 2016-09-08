@@ -3,12 +3,14 @@
 typedef int ElementType;
 
 int BinarySearch(const ElementType A[], ElementType X, int N);
+unsigned int Gcd(unsigned int M, unsigned int N);
 
 int main(void) {
-    int sequence[] = {-4, -2, -1, 0, 2, 4, 5};
+    int sequence[] = { -4, -2, -1, 0, 2, 4, 5 };
     printf("%d\n", BinarySearch(sequence, 2, 7));
     printf("%d\n", BinarySearch(sequence, 1, 7));
 
+    printf("%d\n", Gcd(50, 15));
     return 0;
 }
 
@@ -27,5 +29,17 @@ int BinarySearch(const ElementType A[], ElementType X, int N) {
             return Mid;
     }
     return NotFound;
+}
+
+/* 欧几里得算法 */
+unsigned int Gcd(unsigned int M, unsigned int N) {
+    unsigned int Rem;
+
+    while (N > 0) {
+        Rem = M % N;
+        M = N;
+        N = Rem;
+    }
+    return M;
 }
 
