@@ -15,6 +15,8 @@ int main(void) {
     printf("%d\n", MaxSubsequenceSum2(sequence, 10));
     printf("%d\n", MaxSubsequenceSum3(sequence, 10));
     printf("%d\n", MaxSubsequenceSum4(sequence, 10));
+
+    return 0;
 }
 
 int MaxSubsequenceSum1(const int A[], int N) {
