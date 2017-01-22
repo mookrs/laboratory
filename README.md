@@ -9,13 +9,13 @@ A laboratory for testing code.
 * c_programing：C 语言练习
 * data_structure：《数据结构与算法分析（C 语言描述）》（Data Structures and Algorithm Analysis in C）
 * flasky：《Flask Web 开发：基于 Python 的 Web 应用开发实战》（Flask Web Development）
-* * [x] jay_skript：《JavaScript DOM 编程艺术》第 12 章的综合示例
+* jay_skript：《JavaScript DOM 编程艺术》第 12 章的综合示例 * [x]
 * js_examples： JavaScript [实例索引](http://fgm.cc/learn/)
 * k\_and\_r：《C 语言程序设计》（The C Programming Language）
-* * [x] learngit：廖雪峰的 [Git 教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+* learngit：廖雪峰的 [Git 教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000) * [x]
 * leetcode：[LeetCode](https://leetcode.com/) 练习
 * python_cookbook：《[Python Cookbook](https://github.com/dabeaz/python-cookbook)》
-* * [x] python_programing
+* python_programing * [x]
 	* arcpy：ArcPy 脚本
 	* flask_upload：Flask stream file upload
 	* handle\_sst\_data\_with\_python：使用 Python 处理 NOAA 上的 SST 数据
