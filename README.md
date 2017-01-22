@@ -21,6 +21,7 @@ A laboratory for testing code.
 	* handle\_sst\_data\_with\_python：使用 Python 处理 NOAA 上的 SST 数据
 	* introduction\_to\_computer\_and\_programming：《编程导论》（Introduction to Computation and Programming Using Python）
 	* python_basic：《Python 基础教程》20-22 章的代码
+	* python_scripts：Python 脚本练习
 	* sms_converter：蜡笔及豌豆荚 CSV 格式转换脚本
 * [simple\_programming\_problems](http://adriann.github.io/programming_problems.html)
 * web_scraping：《[Web Scraping with Python](https://github.com/REMitchell/python-scraping)》
