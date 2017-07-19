@@ -19,6 +19,7 @@ a {
 
 .thumbnail-list {
   list-style: none;
+  padding: 0;
 }
 
 .thumbnail-image {
