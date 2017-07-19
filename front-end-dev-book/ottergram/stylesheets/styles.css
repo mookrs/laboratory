@@ -7,6 +7,10 @@ a {
   text-decoration: none;
 }
 
+.thumbnail-item+.thumbnail-item {
+  margin-top: 10px;
+}
+
 .thumbnail-item {
   display: block;
   border: 1px solid rgb(100%, 100%, 100%);
