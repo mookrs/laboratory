@@ -41,6 +41,9 @@ a {
 .thumbnail-list {
   list-style: none;
   padding: 0;
+
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .thumbnail-image {
