@@ -14,7 +14,7 @@ for child in bsObj.find("table", {"id": "giftList"}).children:
 
 print("----------")
 
-# by selecting the title row and calling next_siblings, we can select all
+# By selecting the title row and calling next_siblings, we can select all
 # the rows in the table
 for sibling in bsObj.find("table", {"id": "giftList"}).tr.next_siblings:
     print(sibling)

@@ -11,6 +11,7 @@ random.seed(datetime.datetime.now())
 allExtLinks = set()
 allIntLinks = set()
 
+
 # Retrieves a list of all Internal links found on a page
 def getInternalLinks(bsObj, includeUrl):
     includeScheme = urlparse(includeUrl).scheme + ":"
