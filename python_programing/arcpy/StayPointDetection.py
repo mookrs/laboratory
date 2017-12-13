@@ -1,8 +1,9 @@
 # coding: utf-8
-import arcpy
 import math
 import csv
 from datetime import datetime
+
+import arcpy
 
 # FC 表示 Feature Class
 corePointFC = 'C:/Users/Mookrs/Desktop/EddyGDB.gdb/CorePoint'
@@ -29,7 +30,7 @@ class Coord:
         self.y = y
 
     def __str__(self):
-        return '({0}, {1})'.format(self.x, self.y)  
+        return '({0}, {1})'.format(self.x, self.y)
 
 
 class Point:
@@ -75,7 +76,7 @@ def StayPointDetection(points, distThreh, timeThreh):
             dist = Distance(points[i], points[j])
             if dist > distThreh:
                 timespan = ComputTimespan(points[j].time, points[i].time)
-                if timespan > timeThreh: 
+                if timespan > timeThreh:
                     s = StayPoint()
                     coord = ComputMeanCoord(points[i], points[j])
                     s.x, s.y = coord.x, coord.y
@@ -145,7 +146,7 @@ if __name__ == '__main__':
                         expression2 = arcpy.AddFieldDelimiters(corePointFC, coreIDField) + " = '" + nextCoreID + "'"
 
                         with arcpy.da.SearchCursor(corePointFC, corePointFields, where_clause=expression2) as cursor3:
-                        # （同cursor2）遍历查找到的 CorePoint 层中的行，理论上来说只有一个结果
+                            # (同cursor2) 遍历查找到的 CorePoint 层中的行，理论上来说只有一个结果
                             for row3 in cursor3:
                                 p = Point(Coord(row3[1], row3[2]), row3[3])
                                 pointsInOneProcess.append(p)
@@ -167,7 +168,7 @@ if __name__ == '__main__':
             sps = StayPointDetection(pnts, 999, -1)
             # 不为空
             if sps:
-                # TODO 考虑如何为停留点分组 
+                # TODO 考虑如何为停留点分组
                 writer.writerow([-1])
                 for sp in sps:
                     writer.writerow([sp.x, sp.y, sp.arvT, sp.levT])

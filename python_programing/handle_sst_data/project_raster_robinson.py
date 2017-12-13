@@ -5,13 +5,14 @@
     并在 1993 同级目录生成 1993_project 文件夹，用于存放更改了投影的 raster 文件。
 """
 
-import arcpy, os
+import os
+import arcpy
+
 
 def project_raster(in_dataset, out_dataset):
     try:
         coord_sys = arcpy.SpatialReference(54030)
         arcpy.ProjectRaster_management(in_dataset, out_dataset, coord_sys, 'NEAREST', '#', '#', '#', '#')
-    
     except:
         print 'Error location: ' + in_dataset
         print arcpy.GetMessages()

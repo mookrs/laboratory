@@ -3,7 +3,8 @@
     放到 .txt 同级目录下执行，将在当前目录生成 raster 文件夹，并通过文本生成 raster 数据，分年度存放。
 """
 
-import os, arcpy
+import os
+import arcpy
 
 if not os.path.exists('raster'):
     os.mkdir('raster')
