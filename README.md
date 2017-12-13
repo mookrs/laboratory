@@ -16,11 +16,11 @@ A laboratory for testing code.
 * learngit：廖雪峰的 [Git 教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000) ✓
 * leetcode：[LeetCode](https://leetcode.com/) 练习
 * python_cookbook：《[Python Cookbook](https://github.com/dabeaz/python-cookbook)》
-* python_programing ✓
+[x] python_programing
 	* arcpy：ArcPy 脚本
-	* handle\_sst\_data\_with\_python：使用 Python 处理 NOAA 上的 SST 数据
-	* introduction\_to\_computer\_and\_programming：《编程导论》（Introduction to Computation and Programming Using Python）
-	* python_scripts：Python 脚本练习
+	* handle\_sst\_data：使用 Python 处理 NOAA 上的 SST 数据
+	* introduction\_to\_computer\_and\_programming：《[编程导论](https://book.douban.com/subject/26368668/)》（[Introduction to Computation and Programming Using Python](https://mitpress.mit.edu/books/introduction-computation-and-programming-using-python-0)）
+	* python_scripts：Python 小脚本
 	* sms_converter：蜡笔及豌豆荚 CSV 格式转换脚本
 * [simple\_programming\_problems](http://adriann.github.io/programming_problems.html)
-* web_scraping：《[Web Scraping with Python](https://github.com/REMitchell/python-scraping)》
+[x] web_scraping：《[Python 网络数据采集](https://book.douban.com/subject/26740503/)》（[Web Scraping with Python](https://github.com/REMitchell/python-scraping)）
