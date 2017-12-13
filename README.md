@@ -18,7 +18,6 @@ A laboratory for testing code.
 * python_cookbook：《[Python Cookbook](https://github.com/dabeaz/python-cookbook)》
 * python_programing ✓
 	* arcpy：ArcPy 脚本
-	* beginning_python：《Python 基础教程》20-22 章的代码
 	* handle\_sst\_data\_with\_python：使用 Python 处理 NOAA 上的 SST 数据
 	* introduction\_to\_computer\_and\_programming：《编程导论》（Introduction to Computation and Programming Using Python）
 	* python_scripts：Python 脚本练习
