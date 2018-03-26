@@ -55,6 +55,12 @@ a {
   max-width: 120px;
   border: 1px solid rgb(100%, 100%, 100%);
   border: 1px solid rgba(100%, 100%, 100%, 0.8);
+
+  transition: transform 133ms ease-in-out;
+}
+
+.thumbnail-item:hover {
+  transform: scale(1.2);
 }
 
 .thumbnail-list {
@@ -63,7 +69,7 @@ a {
   display: flex;
   justify-content: space-between;
   list-style: none;
-  padding: 0;
+  padding: 20px 0;
 
   white-space: nowrap;
   overflow-x: auto;
@@ -93,6 +99,13 @@ a {
 .detail-image-frame {
   position: relative;
   text-align: center;
+
+  transition: transform 333ms cubic-bezier(1,.06,.28,1);
+}
+
+.is-tiny {
+  transform: scale(0.001);
+  transition: transform 0ms;
 }
 
 .detail-image {
@@ -122,7 +135,7 @@ a {
   max-width: 80%;
 }
 
-@media all and (orientation: landscape) {
+@media all and (min-width: 768px) {
   .main-content {
     flex-direction: row;
     overflow: hidden;
@@ -132,6 +145,8 @@ a {
     flex-direction: column;
     order: 0;
     margin-left: 20px;
+
+    padding: 0 35px;
   }
 
   .thumbnail-item {
