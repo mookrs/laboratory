@@ -109,6 +109,19 @@ a {
   font-size: 40px;
 }
 
+.hidden-detail .detail-image-container {
+  display: none;
+}
+
+.hidden-detail .thumbnail-list {
+  flex-direction: column;
+  align-items: center;
+}
+
+.hidden-detail .thumbnail-item {
+  max-width: 80%;
+}
+
 @media all and (orientation: landscape) {
   .main-content {
     flex-direction: row;
