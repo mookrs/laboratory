@@ -15,6 +15,7 @@ A laboratory for testing code.
 * [ ] k\_and\_r：《C 语言程序设计》（The C Programming Language）
 * [x] learngit：廖雪峰的 [Git 教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 * [ ] python_cookbook：《[Python Cookbook](https://github.com/dabeaz/python-cookbook)》
+* [ ] python_algorithms：[Problem Solving with Algorithms and Data Structures using Python](http://interactivepython.org/runestone/static/pythonds/index.html)
 * [x] python_programing
 	* arcpy：ArcPy 脚本
 	* handle\_sst\_data：使用 Python 处理 NOAA 上的 SST 数据
