@@ -5,7 +5,6 @@ A laboratory for testing code.
 ## Introduction
 
 * [ ] 3w3w：[3 Web Designs in 3 Weeks](https://www.gitbook.com/book/juntao/3-web-designs-in-3-weeks/details)
-* [ ] algorithms：《算法（第 4 版）》（[Algorithms](http://algs4.cs.princeton.edu/home/)）
 * [ ] c_programing：C 语言练习
 * [ ] css_secrets：《CSS 揭秘》
 * [ ] data_structure：《数据结构与算法分析（C 语言描述）》（Data Structures and Algorithm Analysis in C）
